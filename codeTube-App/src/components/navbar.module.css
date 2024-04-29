@@ -1,0 +1,15 @@
+
+nav{
+    padding: 10px 50px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+nav span img{
+    width: 50px;
+}
+
+.cart img{
+    width: 50px;
+}
