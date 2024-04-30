@@ -4,13 +4,34 @@ nav{
     display: flex;
     justify-content: space-around;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    margin-bottom: 3rem;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    background-color: #fff;
 }
 
 nav span img{
     width: 50px;
 }
-
+.cart{
+    display: flex;
+}
 .cart img{
     width: 50px;
+}
+
+.cartCount{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    font-weight: 600;
+    position: relative;
+    right: 20px;
 }

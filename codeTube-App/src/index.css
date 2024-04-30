@@ -4,3 +4,12 @@
   box-sizing: border-box;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
+
+
+main{
+  width: 100%;
+  margin-top: 9rem;
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}

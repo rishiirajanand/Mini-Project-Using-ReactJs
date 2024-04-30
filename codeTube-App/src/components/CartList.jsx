@@ -5,16 +5,21 @@ export default class CartList extends Component
 {
     render()
     {
-        const {courses,isInCart} = this.props;
+        const {courses} = this.props;
         const {toggleCart} = this.props;
+        
 
         return(
             <>
-                < Cart
-                    courses = {courses}
-                    isInCart = {isInCart}
-                    toggleCart = {toggleCart} 
-                />
+                {
+                    courses.map((course)=>(
+                        < Cart key={course.id}
+                            course = {course}
+                            toggleCart = {toggleCart}
+
+                        />
+                    ))
+                }
             </>
         )
     }

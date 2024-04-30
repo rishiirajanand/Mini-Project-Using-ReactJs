@@ -5,25 +5,22 @@ export default class Cart extends Component
 {
     render()
     {
-        const {courses,isInCart} = this.props;
-        const {toggleCart} = this.props;
-        console.log(this.props);
+        const {course,toggleCart} = this.props;
+        const {price,title,description,instructor,image, isInCart} = course;
+
         
         return (
             <>
                 <div className={cartCss.cartContainer}>
-                    <img 
-                        src="https://res.cloudinary.com/dl26pbek4/image/upload/v1675071292/cn-questions/wp5191387-js-wallpapers_lmcxnn.jpg" 
-                        alt="node" 
-                    />
+                    <img src={image} alt="node"/>
+
                     <div className={cartCss.cartBody}>
-                        <h1>NodeJS Tutorial and Projects Course (2024)</h1>
-                        <p>
-                            Learn Node.js by building real-world applications with Node JS, Express, MongoDB.
-                        </p>
+                        <h1>{title}</h1>
+                        <p>{description}</p>
+                        <h3>{instructor}</h3>
                         <div className={cartCss.cartButtonBox}>
-                            <span>1500</span>
-                            <button className={cartCss.addToCartBtn} onClick={()=> toggleCart(courses)}>
+                            <span>{price}</span>
+                            <button className={cartCss.addToCartBtn} onClick={()=> toggleCart(course)}>
                                 {isInCart ? 'Remove from Bag' : 'Add to bag'}
                             </button>
                         </div>
