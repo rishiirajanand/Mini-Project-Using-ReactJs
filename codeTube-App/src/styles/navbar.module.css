@@ -4,6 +4,7 @@ nav{
     display: flex;
     justify-content: space-around;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-bottom: 3rem;
 }
 
 nav span img{

@@ -1,14 +1,21 @@
-import cartCss from "./cartList.module.css";
+import { Component } from "react";
+import Cart from "./Cart.jsx";
 
-function CartList(props)
+export default class CartList extends Component
 {
-    return (
-        <>
-            <div className="">
+    render()
+    {
+        const {courses,isInCart} = this.props;
+        const {toggleCart} = this.props;
 
-            </div>
-        </>
-    )
+        return(
+            <>
+                < Cart
+                    courses = {courses}
+                    isInCart = {isInCart}
+                    toggleCart = {toggleCart} 
+                />
+            </>
+        )
+    }
 }
-
-export default CartList;
