@@ -1,0 +1,78 @@
+
+main{
+    
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+}
+
+.inputContainer{
+    width: 400px;
+    border: 2px solid rgb(173, 170, 170);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 0.5rem;
+    border-radius: 5px;
+}
+
+input{
+    padding: 5px 0;
+}
+
+.inputContainer p{
+    font-size: 14px;
+    opacity: 70%;
+}
+
+button{
+    padding: 5px 0;
+    background-color: #3a85ffcd;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+button:hover{
+    background-color: #3a85ff;
+}
+
+
+/* SIDEBAR */
+
+.sidebarContainer{
+    /* border: 2px solid red; */
+    padding: 20px;
+}
+
+.transactionBox{
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 2.6px;
+    display: flex;
+    padding: 30px;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.income, .expense{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-weight: 600;
+    font-size: 12px;
+}
+.income span:nth-child(2){
+    color: green;
+    font-size: 0.8rem;
+}
+.expense span:nth-child(2){
+    color: red;
+    font-size: 0.8rem;
+}
+
+#balance{
+    font-size: 24px;
+    font-weight: 600;
+}
+
