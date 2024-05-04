@@ -45,6 +45,7 @@ button:hover{
 .sidebarContainer{
     /* border: 2px solid red; */
     padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .transactionBox{
@@ -52,7 +53,7 @@ button:hover{
     display: flex;
     padding: 30px;
     gap: 2rem;
-    margin-top: 2rem;
+    margin: 2rem 0 1rem 0;
 }
 
 .income, .expense{
@@ -76,3 +77,20 @@ button:hover{
     font-weight: 600;
 }
 
+.history{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.8rem;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.history span{
+    font-size: 12px;
+}
+.greenBorder{
+    border-right: 6px solid green;
+}
+.redBorder{
+    border-right: 6px solid red;
+}
