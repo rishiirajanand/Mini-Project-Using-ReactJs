@@ -5,24 +5,34 @@ export default function Input()
 {
 
     const [name, setName] = useState('');
-    const [amount, setAmount] = useState(0)
+    const [amount, setAmount] = useState('');
 
-    let expenceAmount = 0;
-    let incomeAmount = 0;
+    let [income, setIncome] = useState(0);
+    let [expense, setExpense] = useState(0);
 
+    let [totalAmount, setTotalAmount] = useState(5000)
 
     const handleSubmit = ()=>{
         
-        if(amount < 0){
-            expenceAmount += parseInt(amount)
-        }else{
-            incomeAmount += amount
-        }
-        console.log(expenceAmount);
-        setName('');
-        setAmount(0)
+        if(parseInt(amount) < 0){
+            setExpense(expense += parseInt(amount))
+            setTotalAmount(totalAmount += parseInt(amount))
 
+            console.log(expense);
+        
+        }
+        else{
+            setIncome(income += parseInt(amount))
+            setTotalAmount(totalAmount += parseInt(amount))
+        }
+        
+        setName('')
+        setAmount('')
     }
+
+    
+
+    
     const handleName = (e)=> setName(e.target.value)
     const handleAmount = (e)=> setAmount(e.target.value)
 
@@ -50,17 +60,17 @@ export default function Input()
 
                 <div className={cssObj.sidebarContainer}>
                     <h3>YOUR BALANCE</h3>
-                    <span id={cssObj.balance}>$</span>
+                    <span id={cssObj.balance}>${totalAmount}</span>
 
                     <div className={cssObj.transactionBox}>
                         <div className={cssObj.income}>
                             <span>INCOME</span>
-                            <span>{`$${incomeAmount}`}</span>
+                            <span>{`$${income}`}</span>
                         </div>
                         <hr />
                         <div className={cssObj.expense}>
                             <span>EXPENSE</span>
-                            <span>{`$${expenceAmount}`}</span>
+                            <span>{`$${expense}`}</span>
                         </div>
                     </div>
                 </div>
