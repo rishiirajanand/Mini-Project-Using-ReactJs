@@ -1,40 +1,34 @@
 import cssObj from '../styles/input.module.css';
-import {useState, useEffect} from 'react'
+import {useState} from 'react'
 
 export default function Input()
 {
+    const [data, setData] = useState({name : "", amount : ''});
+    const [dataValue, setDataValue] = useState({income : 0, expense : 0});
 
-    const [name, setName] = useState('');
-    const [amount, setAmount] = useState('');
-
-    let [income, setIncome] = useState(0);
-    let [expense, setExpense] = useState(0);
-
-    let [totalAmount, setTotalAmount] = useState(5000)
+    let [totalAmount, setTotalAmount] = useState(0)
 
     const handleSubmit = ()=>{
-        
-        if(parseInt(amount) < 0){
-            setExpense(expense += parseInt(amount))
-            setTotalAmount(totalAmount += parseInt(amount))
+        const dataVal = parseInt(data.amount)
 
-            console.log(expense);
-        
+        if(dataVal < 0){
+            setDataValue({
+                income : dataValue.income, 
+                expense : dataValue.expense += dataVal
+            })
+            setTotalAmount(totalAmount += parseInt(data.amount))
+        }else{
+            setDataValue({
+                income : dataValue.income += dataVal, 
+                expense : dataValue.expense
+            });
+            setTotalAmount(totalAmount += parseInt(data.amount))
         }
-        else{
-            setIncome(income += parseInt(amount))
-            setTotalAmount(totalAmount += parseInt(amount))
-        }
-        
-        setName('')
-        setAmount('')
+        setData({name : "", amount : ''})
     }
 
-    
-
-    
-    const handleName = (e)=> setName(e.target.value)
-    const handleAmount = (e)=> setAmount(e.target.value)
+    const handleName = (e)=> setData({name : e.target.value, amount : data.amount})
+    const handleAmount = (e)=> setData({name : data.name, amount : e.target.value})
 
     return(
         <>
@@ -43,13 +37,13 @@ export default function Input()
                     <h2>Add new transaction</h2>
                     <span>Text</span>
                     <input type="text" name="tName" id={cssObj.tName}
-                        value={name}
+                        value={data.name}
                         onChange={handleName}
                     />
                     <span>Amount</span>
                     <p>(negative - expense, positive - income)</p>
                     <input type="number" name="amount" id="amount" 
-                        value={amount}
+                        value={data.amount}
                         onChange={handleAmount}
                     />
                     <button onClick={handleSubmit}>
@@ -65,15 +59,16 @@ export default function Input()
                     <div className={cssObj.transactionBox}>
                         <div className={cssObj.income}>
                             <span>INCOME</span>
-                            <span>{`$${income}`}</span>
+                            <span>{`$${dataValue.income}`}</span>
                         </div>
                         <hr />
                         <div className={cssObj.expense}>
                             <span>EXPENSE</span>
-                            <span>{`$${expense}`}</span>
+                            <span>{`$${dataValue.expense}`}</span>
                         </div>
                     </div>
                 </div>
+
             </main>
         </>
     )
