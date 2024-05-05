@@ -1,5 +1,5 @@
 import cssObj from '../styles/input.module.css';
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react'
 import TransactionList from './TransactionList';
 
 export default function Input()
@@ -9,6 +9,12 @@ export default function Input()
 
     let [totalAmount, setTotalAmount] = useState(0);
     const [dataList, setDataList] = useState([]);
+    const nameRef = useRef();
+
+    useEffect(()=>{
+        nameRef.current.focus()
+    },[])
+
 
     const handleSubmit = ()=>{
         const dataVal = parseInt(data.amount)
@@ -34,12 +40,15 @@ export default function Input()
             
         }
 
-        setData({name : "", amount : ''})
+        setData({name : "", amount : ''});
+        nameRef.current.focus();
     }
 
     // let tempVar = data.map(()=> )
 
-    const handleName = (e)=> setData({name : e.target.value, amount : data.amount})
+    const handleName = (e)=> {
+        return setData({name : e.target.value, amount : data.amount})
+    }
     const handleAmount = (e)=> setData({name : data.name, amount : e.target.value})
 
     return(
@@ -51,6 +60,8 @@ export default function Input()
                     <input type="text" name="tName" id={cssObj.tName}
                         value={data.name}
                         onChange={handleName}
+                        ref={nameRef}
+                       
                     />
                     <span>Amount</span>
                     <p>(negative - expense, positive - income)</p>
@@ -58,6 +69,7 @@ export default function Input()
                     <input type="number" name="amount" id="amount" 
                         value={data.amount}
                         onChange={handleAmount}
+                        
                     />
 
                     <button onClick={handleSubmit}>
