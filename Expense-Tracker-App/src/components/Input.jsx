@@ -15,7 +15,6 @@ export default function Input()
         nameRef.current.focus()
     },[])
 
-
     const handleSubmit = ()=>{
         const dataVal = parseInt(data.amount)
 
@@ -44,7 +43,16 @@ export default function Input()
         nameRef.current.focus();
     }
 
-    // let tempVar = data.map(()=> )
+    const handleDeleteList = (list)=>{
+       setDataList(dataList.filter((l)=> l!== list))
+       console.log(dataList);
+    }
+
+    const handleUpdateList = (list)=>{
+        const getID = dataList.indexOf(list);
+
+        setData({name : dataList[getID].name, amount: dataList[getID].amount})
+    }
 
     const handleName = (e)=> {
         return setData({name : e.target.value, amount : data.amount})
@@ -102,6 +110,8 @@ export default function Input()
                                 < TransactionList 
                                     key={index}
                                     list = {list}
+                                    deleteList = {handleDeleteList}
+                                    updateList = {handleUpdateList}
                                 />
                             )
                         })

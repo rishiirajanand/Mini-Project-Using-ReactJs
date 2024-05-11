@@ -1,9 +1,9 @@
 import cssObj from '../styles/input.module.css';
-import { useState, useEffect } from 'react';
+
 
 export default function TransactionList(props)
 {
-    const {list} = props;
+    const {list, deleteList, updateList} = props;
     return (
         <>
             <div
@@ -13,9 +13,17 @@ export default function TransactionList(props)
                 <div className={cssObj.historyEdit}>
                     <span>${list.amount}</span>
 
-                    <img src="https://cdn-icons-png.flaticon.com/128/6711/6711573.png" alt="delete" />
+                    <img 
+                        src="https://cdn-icons-png.flaticon.com/128/6711/6711573.png" alt="delete" 
+                        onClick={()=>deleteList(list)}
+                    />
                              
-                    <img src="https://cdn-icons-png.flaticon.com/128/10336/10336582.png" alt="edit" />
+                    <img 
+                        src="https://cdn-icons-png.flaticon.com/128/10336/10336582.png" alt="edit" 
+                        onClick={()=>updateList(list)}
+
+                    />
+
                 </div>
 
             </div>
